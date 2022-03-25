@@ -1,0 +1,59 @@
+import javax.swing.JOptionPane;
+
+public class Quiz {
+	static int nQuestions = 0;
+	static int nCorrect = 0;
+	public static void main(String[] args) {
+		String question = "What is the other name for charles?\n";
+		question = question+"A. Nuvia Okenyoru.\n";
+		question = question+"B. Gerald Barasa.\n";
+		question = question+"C. James Mongrel.\n";
+		question = question+"D. Sorobi Moturi Erastus.\n";
+		check(question,"A");
+		question = "Who is charles Okenyoru?\n";
+		question+= "A. A boy from Ruma South Mugirango\n";
+		question+= "B. A boy from Keroka\n";
+		question+= "C. He is from Nyangusu\n";
+		question+= "D. No particular answer to that question\n";
+		check(question,"A");
+		question = "Who is the founding president of the republic of Kenya?\n";
+		question+= "A. Julius Kambarage Nyerere\n";
+		question+= "B. James Bond\n";
+		question+= "C. Mzee Jomo Kenyatta\n";
+		question+= "D. Ombogo Ombogo\n";
+		check(question,"C");
+		
+		JOptionPane.showMessageDialog(null, nCorrect+" Correct out of "+nQuestions+" qestions.");
+		}	
+		static String ask(String question) {
+			while (true) {
+				String answer = JOptionPane.showInputDialog(question);
+				answer = answer.toUpperCase();
+				
+				boolean valid = (answer.equals("A")||answer.equals("B")|| answer.equals("C")||
+						answer.equals("D"));
+				if (valid) return answer;
+				
+				JOptionPane.showMessageDialog(null, "Invalid answer, please answer with A, B"
+						+ "C, or D");
+			}
+		}
+		static void check(String question, String correctAnswer) {
+			String answer = ask(question);
+			nQuestions++;
+			
+			if (answer.equals(correctAnswer)) {
+				JOptionPane.showMessageDialog(null, "Correct answer!");
+				nCorrect++;
+			}else {
+				JOptionPane.showMessageDialog(null, "Incorrect! The correct anwer is "+correctAnswer);
+			}
+		}
+		
+		
+		}
+		
+	
+
+
+
